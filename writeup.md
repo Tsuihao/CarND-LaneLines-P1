@@ -1,8 +1,5 @@
 # **Finding Lane Lines on the Road** 
 
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
@@ -30,6 +27,14 @@ In order to draw a single line on the left and right lanes, I modified the draw_
 If you'd like to include images to show how the pipeline works, here is how to include an image: 
 
 ![alt text][image1]
+
+The pipeline consisted of the following steps:
+1. [Pre-processing]: convert image into gray scale and blur it with Gaussian filter.
+2. Use Canny edge detection to extract the contour.
+3. Implement Region of Interests (ROI) and Hough transform to extract potential line.
+4. [Post-processing]: colorize the detected lane and extropolate the dash-line into solid line.
+5. [Post-processing]: use cv2.addWeighted function to overlap the mask and original image.
+
 
 
 ### 2. Identify potential shortcomings with your current pipeline
