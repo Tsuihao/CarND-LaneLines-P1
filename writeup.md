@@ -20,13 +20,6 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
 
 The pipeline consisted of the following steps:
 1. [Pre-processing]: convert image into gray scale and blur it with Gaussian filter.
@@ -40,13 +33,17 @@ The pipeline consisted of the following steps:
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
+Shortcoming:
+1. The assumption for "Hard" categorizing left and right line by the value of slope is not robust in curvature scenario
+2. Hyper-parameters for Hough transform or Canny are that reliable if the driving scenario is changed.
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+Based on the description on section 2, the possible input will be using Convolutional Neural Network to detect the line first and use conventional method (what we have done) to fine tune the result. Since CNN is a more powerful image recognition approach and it can be relatively easlier to adapt to different driving scneario. 
 
-Another potential improvement could be to ...
+However, additional work will be:
+1. Model selection
+2. Model training
+3. Train/test sample collection
+4. (optional) Data augmentation
+5. Model performance profiling
